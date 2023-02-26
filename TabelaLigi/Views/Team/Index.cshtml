@@ -14,7 +14,9 @@
         <tr>
             <th scope="row">@team.Id</th>
             <td>@team.Name</td>
-            <td><a href="/" class="btn btn-secondary">ℹ️ Szczegóły</a></td>
+            <td><a href="@Url.ActionLink("Details",
+                             "Team",
+                             new {Id = @team.Id})" class="btn btn-secondary">ℹ️ Szczegóły</a></td>
             <td><a href="/" class="btn btn-primary">📝 Edytuj</a></td>
             <td><a href="/" class="btn btn-danger">🗑️ Usuń</a></td>
             <td></td>

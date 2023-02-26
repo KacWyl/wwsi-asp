@@ -20,8 +20,8 @@ public class TeamController : Controller
     }
 
     [Route("{id}")]
-    public async Task<IActionResult> Get(int id)
+    public async Task<IActionResult> Details(int id)
     {
-        return Ok(await _teamsRepo.ReadTeamAsync(id));
+        return View(await _teamsRepo.ReadTeamAsync(id));
     }
 }
