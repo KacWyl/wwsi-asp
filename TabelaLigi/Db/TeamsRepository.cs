@@ -39,4 +39,10 @@ public class TeamsRepository : ITeamsRepository
         _dbContext.Update(team);
         return await _dbContext.SaveChangesAsync() != 0;
     }
+
+    public async Task CreateAsync(Team team)
+    {
+        await _dbContext.AddAsync(team);
+        await _dbContext.SaveChangesAsync();
+    }
 }

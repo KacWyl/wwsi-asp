@@ -1,0 +1,8 @@
+@model TabelaLigi.Db.Models.Team
+
+<h2>Drużyna do dodania</h2>
+<form asp-action="Add" method="POST">
+    <label asp-for="Name" class="form-label">Nazwa</label>
+    <input asp-for="Name" class="form-control"/>
+    <input type="submit" class="btn btn-primary" value="Zapisz"/>
+</form>

@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Mvc;
 using TabelaLigi.Db;
 using TabelaLigi.Db.Models;
@@ -43,6 +44,22 @@ public class TeamController : Controller
     public async Task<IActionResult> Edit(Team team)
     {
         await _teamsRepo.UpdateAsync(team);
+        return RedirectToAction(nameof(Index));
+    }
+
+    [HttpGet]
+    public IActionResult Add()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Add(
+        [Bind("Name")]
+        [FromForm]
+        Team team)
+    {
+        await _teamsRepo.CreateAsync(team);
         return RedirectToAction(nameof(Index));
     }
 }
