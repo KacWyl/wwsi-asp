@@ -3,8 +3,6 @@ using TabelaLigi.Db;
 
 namespace TabelaLigi.Controllers;
 
-[Controller]
-[Route("[controller]")]
 public class TeamController : Controller
 {
     private readonly ITeamsRepository _teamsRepo;
@@ -18,10 +16,18 @@ public class TeamController : Controller
     {
         return View(await _teamsRepo.ReadAllTeamsAsync());
     }
-
-    [Route("{id}")]
     public async Task<IActionResult> Details(int id)
     {
         return View(await _teamsRepo.ReadTeamAsync(id));
+    }
+
+    public async Task<IActionResult> Delete(int id)
+    {
+        return View(await _teamsRepo.ReadTeamAsync(id));
+    }
+    
+    public IActionResult ConfirmDelete()
+    {
+        throw new NotImplementedException();
     }
 }

@@ -1,0 +1,5 @@
+@model TabelaLigi.Db.Models.Team
+
+<h2>Czy napewno chcesz usunąć "@Model.Name"?</h2>
+@await Html.PartialAsync("_ShortDetails", Model)
+<a class="btn btn-danger fw-bolder" href="@Url.Action("ConfirmDelete")">Potwierdź</a>
