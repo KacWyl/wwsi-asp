@@ -16,7 +16,7 @@ public class TeamController : Controller
 
     public async Task<IActionResult> Index()
     {
-        return Ok(await _teamsRepo.ReadAllTeamsAsync());
+        return View(await _teamsRepo.ReadAllTeamsAsync());
     }
 
     [Route("{id}")]
