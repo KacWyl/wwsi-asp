@@ -26,4 +26,11 @@ public class TeamsRepository : ITeamsRepository
     {
         return await _dbContext.Teams.ToListAsync();
     }
+
+    public async Task<bool> DeleteAsync(int id)
+    {
+        Team teamStub = new() { Id = id };
+        _dbContext.Remove(teamStub);
+        return await _dbContext.SaveChangesAsync() != 0;
+    }
 }

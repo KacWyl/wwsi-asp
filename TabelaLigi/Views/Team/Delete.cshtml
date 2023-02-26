@@ -2,4 +2,7 @@
 
 <h2>Czy napewno chcesz usunąć "@Model.Name"?</h2>
 @await Html.PartialAsync("_ShortDetails", Model)
-<a class="btn btn-danger fw-bolder" href="@Url.Action("ConfirmDelete")">Potwierdź</a>
+<form method="POST" asp-action="ConfirmDelete">
+    <input type="hidden" name="id" value="@Model.Id"/>
+    <input type="submit" class="btn btn-danger fw-bolder" value="Potwierdź"/>
+</form>

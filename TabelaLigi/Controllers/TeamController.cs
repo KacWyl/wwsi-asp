@@ -26,8 +26,10 @@ public class TeamController : Controller
         return View(await _teamsRepo.ReadTeamAsync(id));
     }
     
-    public IActionResult ConfirmDelete()
+    [HttpPost]
+    public async Task<IActionResult> ConfirmDelete([FromForm] int id)
     {
-        throw new NotImplementedException();
+        await _teamsRepo.DeleteAsync(id);
+        return RedirectToAction(nameof(Index));
     }
 }
