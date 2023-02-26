@@ -17,7 +17,9 @@
             <td><a href="@Url.ActionLink("Details",
                              "Team",
                              new {team.Id})" class="btn btn-secondary">ℹ️ Szczegóły</a></td>
-            <td><a href="/" class="btn btn-primary">📝 Edytuj</a></td>
+            <td><a href="@Url.ActionLink("Edit",
+                             "Team", 
+                             new {team.Id})" class="btn btn-primary">📝 Edytuj</a></td>
             <td><a href="@Url.ActionLink("Delete", 
                              "Team", 
                              new {team.Id})" class="btn btn-danger">🗑️ Usuń</a></td>

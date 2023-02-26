@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using TabelaLigi.Db;
+using TabelaLigi.Db.Models;
 
 namespace TabelaLigi.Controllers;
 
@@ -30,6 +31,18 @@ public class TeamController : Controller
     public async Task<IActionResult> ConfirmDelete([FromForm] int id)
     {
         await _teamsRepo.DeleteAsync(id);
+        return RedirectToAction(nameof(Index));
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Edit(int id)
+    {
+        return View(await _teamsRepo.ReadTeamAsync(id));
+    }
+
+    public async Task<IActionResult> Edit(Team team)
+    {
+        await _teamsRepo.UpdateAsync(team);
         return RedirectToAction(nameof(Index));
     }
 }

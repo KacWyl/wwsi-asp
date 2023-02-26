@@ -33,4 +33,10 @@ public class TeamsRepository : ITeamsRepository
         _dbContext.Remove(teamStub);
         return await _dbContext.SaveChangesAsync() != 0;
     }
+
+    public async Task<bool> UpdateAsync(Team team)
+    {
+        _dbContext.Update(team);
+        return await _dbContext.SaveChangesAsync() != 0;
+    }
 }

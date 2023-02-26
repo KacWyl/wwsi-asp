@@ -1,0 +1,8 @@
+@model TabelaLigi.Db.Models.Team
+
+<form asp-action="Edit" method="POST">
+    <input type="hidden" asp-for="Id" />
+    <label asp-for="Name" class="form-label">Nazwa</label>
+    <input asp-for="Name" class="form-control"/>
+    <input type="submit" class="btn btn-primary" value="Zapisz"/>
+</form>
