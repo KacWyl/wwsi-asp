@@ -5,6 +5,12 @@
     <tr>
         <th scope="row">ID</th>
         <th scope="row">Nazwa drużyny</th>
+        <th scope="row">M.</th>
+        <th scope="row">W.</th>
+        <th scope="row">R.</th>
+        <th scope="row">P.</th>
+        <th scope="row">B.</th>
+        <th scope="row"><em>Punkty</em></th>
         <th scope="row" colspan="3">Akcje</th>
     </tr>
     </thead>
@@ -14,6 +20,12 @@
         <tr>
             <th scope="row">@team.Id</th>
             <td>@team.Name</td>
+            <td>@team.MatchesPlayed</td>
+            <td>@team.MatchesWon</td>
+            <td>@team.MatchesDrawn</td>
+            <td>@team.MatchesLost</td>
+            <td>@team.GoalsScored-@team.GoalsLost</td>
+            <td><em><b>@team.Points</b></em></td>
             <td><a href="@Url.ActionLink("Details",
                              "Team",
                              new {team.Id})" class="btn btn-secondary">ℹ️ Szczegóły</a></td>
@@ -27,7 +39,7 @@
         </tr>
     }
     <tr class="text-center">
-        <th colspan="5"><a href="@Url.Action("Add")" class="btn btn-primary">➕Dodaj nową drużynę</a></th>
+        <th colspan="11"><a href="@Url.Action("Add")" class="btn btn-primary">➕Dodaj nową drużynę</a></th>
     </tr>
     </tbody>
 </table>
