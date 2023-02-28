@@ -16,7 +16,10 @@ public class TeamController : Controller
 
     public async Task<IActionResult> Index()
     {
-        return View(await _teamsRepo.ReadAllTeamsAsync());
+        var teams = (await _teamsRepo.ReadAllTeamsAsync())
+            .OrderByDescending(t => t.Points)
+            .ThenByDescending(t => t.GoalsDifferential);
+        return View(teams);
     }
     public async Task<IActionResult> Details(int id)
     {

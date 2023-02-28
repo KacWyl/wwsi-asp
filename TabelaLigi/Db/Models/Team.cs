@@ -23,6 +23,8 @@ public class Team
     [Required]
     [Range(0, 150)]
     public int GoalsLost { get; set; }
+
+    public int GoalsDifferential => GoalsScored - GoalsLost;
     public int MatchesPlayed => MatchesWon + MatchesLost + MatchesDrawn;
     public int Points => MatchesWon * 3 + MatchesDrawn;
 }
