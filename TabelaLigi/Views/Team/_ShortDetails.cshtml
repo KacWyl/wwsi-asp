@@ -9,4 +9,17 @@
         <dt class="col-sm-4">Nazwa</dt>
         <dd class="col-sm">@Model.Name</dd>
     </div>
+    <div class="row">
+        <dt class="col-sm-4">Bramki</dt>
+        <dd class="col-sm">@Model.GoalsScored - @Model.GoalsLost</dd>
+    </div>
+    <h5>Mecze</h5>
+    <div class="row">
+        <dt class="col-sm-3">Wygrane</dt>
+        <dd class="col-sm-1">@Model.MatchesWon</dd>
+        <dt class="col-sm-3">Przegrane</dt>
+        <dd class="col-sm-1">@Model.MatchesLost</dd>
+        <dt class="col-sm-3">Zremistowane</dt>
+        <dd class="col-sm-1">@Model.MatchesDrawn</dd>
+    </div>
 </dl>
