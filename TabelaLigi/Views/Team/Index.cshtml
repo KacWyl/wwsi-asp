@@ -1,9 +1,9 @@
-@model IEnumerable<TabelaLigi.Db.Models.Team>
+@model System.Collections.Immutable.ImmutableList<TabelaLigi.Db.Models.Team>
 <h2>Tabla ligi</h2>
 <table class="table">
     <thead class="text-center">
     <tr>
-        <th scope="row">ID</th>
+        <th scope="row">Pozycja</th>
         <th scope="row">Nazwa drużyny</th>
         <th scope="row">M.</th>
         <th scope="row">W.</th>
@@ -15,26 +15,26 @@
     </tr>
     </thead>
     <tbody>
-    @foreach (var team in Model)
+    @for (int i = 0; i < Model.Count; i++)
     {
         <tr>
-            <th scope="row">@team.Id</th>
-            <td>@team.Name</td>
-            <td>@team.MatchesPlayed</td>
-            <td>@team.MatchesWon</td>
-            <td>@team.MatchesDrawn</td>
-            <td>@team.MatchesLost</td>
-            <td>@team.GoalsScored-@team.GoalsLost</td>
-            <td><em><b>@team.Points</b></em></td>
+            <th scope="row">@(i + 1)</th>
+            <td>@Model[i].Name</td>
+            <td>@Model[i].MatchesPlayed</td>
+            <td>@Model[i].MatchesWon</td>
+            <td>@Model[i].MatchesDrawn</td>
+            <td>@Model[i].MatchesLost</td>
+            <td>@Model[i].GoalsScored-@Model[i].GoalsLost</td>
+            <td><em><b>@Model[i].Points</b></em></td>
             <td><a href="@Url.ActionLink("Details",
                              "Team",
-                             new {team.Id})" class="btn btn-secondary">ℹ️ Szczegóły</a></td>
+                             new {Model[i].Id})" class="btn btn-secondary">ℹ️ Szczegóły</a></td>
             <td><a href="@Url.ActionLink("Edit",
                              "Team", 
-                             new {team.Id})" class="btn btn-primary">📝 Edytuj</a></td>
+                             new {Model[i].Id})" class="btn btn-primary">📝 Edytuj</a></td>
             <td><a href="@Url.ActionLink("Delete", 
                              "Team", 
-                             new {team.Id})" class="btn btn-danger">🗑️ Usuń</a></td>
+                             new {Model[i].Id})" class="btn btn-danger">🗑️ Usuń</a></td>
             <td></td>
         </tr>
     }

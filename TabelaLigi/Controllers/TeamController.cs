@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;
+using System.Collections.Immutable;
 using Microsoft.AspNetCore.Mvc;
 using TabelaLigi.Db;
 using TabelaLigi.Db.Models;
@@ -18,7 +18,8 @@ public class TeamController : Controller
     {
         var teams = (await _teamsRepo.ReadAllTeamsAsync())
             .OrderByDescending(t => t.Points)
-            .ThenByDescending(t => t.GoalsDifferential);
+            .ThenByDescending(t => t.GoalsDifferential)
+            .ToImmutableList();
         return View(teams);
     }
     public async Task<IActionResult> Details(int id)
