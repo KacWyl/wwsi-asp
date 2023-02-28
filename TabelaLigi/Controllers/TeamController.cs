@@ -58,7 +58,7 @@ public class TeamController : Controller
 
     [HttpPost]
     public async Task<IActionResult> Add(
-        [Bind("Name")]
+        [Bind("Name", "MatchesWon", "MatchesLost", "MatchesDrawn", "GoalsScored", "GoalsLost")]
         [FromForm]
         Team team)
     {

@@ -2,7 +2,35 @@
 
 <h2>Drużyna do dodania</h2>
 <form asp-action="Add" method="POST">
-    <label asp-for="Name" class="form-label">Nazwa</label>
-    <input asp-for="Name" class="form-control"/>
+    <div class="input-group mb-3">
+        <label asp-for="Name" class="input-group-text">Nazwa</label>
+        <input asp-for="Name" class="form-control"/>
+    </div>
+    <h3>Mecze</h3>
+    <div class="input-group mb-3 row">
+        <div class="col-sm">
+            <label asp-for="MatchesWon" class="input-group-text">Wygrane</label>
+            <input asp-for="MatchesWon" class="form-control"/>
+        </div>
+        <div class="col-sm">
+            <label asp-for="MatchesDrawn" class="input-group-text">Remisy</label>
+            <input asp-for="MatchesDrawn" class="form-control"/>
+        </div>
+        <div class="col-sm">
+            <label asp-for="MatchesLost" class="input-group-text">Przegrane</label>
+            <input asp-for="MatchesLost" class="form-control"/>
+        </div>
+    </div>
+    <h3>Bramki</h3>
+    <div class="input-group mb-3 row">
+        <div class="col-sm">
+            <label asp-for="GoalsScored" class="input-group-text">Zdobyte</label>
+            <input asp-for="GoalsScored" class="form-control"/>
+        </div>
+        <div class="col-sm">
+            <label asp-for="GoalsLost" class="input-group-text">Stracone</label>
+            <input asp-for="GoalsLost" class="form-control"/>
+        </div>
+    </div>
     <input type="submit" class="btn btn-primary" value="Zapisz"/>
 </form>
